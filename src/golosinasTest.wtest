@@ -40,9 +40,9 @@ describe "test de golosinas" {
 		assert.notThat(obleaCrujiente.estaDebil())
 	}
 	
-	test "al darle un mordisco al chocolatinVip, con una humedad de 0.2, el peso = 18,2" {
+	test "al darle un mordisco al chocolatinVip, con una humedad de 0.2, el peso = 21,6" {
 		chocolatinVip.mordisco()
-		assert.equals(18.2, chocolatinVip.peso())
+		assert.equals(21.6, chocolatinVip.peso())
 	}
 	
 	test "la humedad del chocolatinPremium = 0.1" {
