@@ -1,0 +1,52 @@
+import golosinas.*
+
+describe "test de golosinas" {
+	
+	const carameloDeDistitosSabores = new CarameloDeDistitosSabores(sabor = naranja)
+	const bombonDuro = new BombonesDuros()
+	const carameloRelleno = new CaramelosRelleno()
+	const obleaCrujiente = new ObleasCrujientes(mordiscosRecibidos = 0)
+	const chocolatinVip = new ChocolatinesVip(pesoInicial = 20, humedad = 0.2)
+	const chocolatinPremium = new ChocolatinesPremium(pesoInicial = 20, humedad = 0.2)
+	
+	test "cuando se le da un mordisco a los bombones duros pasa a ser peso = 14" {
+		bombonDuro.mordisco()
+		assert.equals(14, bombonDuro.peso())
+	}
+	
+	test "el sabor del carameloDeDistitosSabores = naranja" {
+		assert.equals(naranja, carameloDeDistitosSabores.sabor())
+	}
+	
+	test "cuando se le da un mordisco al carameloRelleno pasa a ser de sabor ch0colate" {
+		carameloRelleno.mordisco()
+		assert.equals(chocolate, carameloRelleno.sabor())
+	}
+	
+	test "el precio del carameloRelleno = 13" {
+		carameloRelleno.mordisco()
+		assert.equals(13, carameloRelleno.precio())
+	}
+	
+	test "al recibir solo 2 mordiscos la obleaCrujiente su peso = 248" {
+		obleaCrujiente.mordisco()
+		obleaCrujiente.mordisco()
+		assert.equals(248, obleaCrujiente.peso())
+	}
+	
+	test "una vez dado los 2 mordiscos, la oblea no esta debil" {
+		obleaCrujiente.mordisco()
+		obleaCrujiente.mordisco()
+		assert.notThat(obleaCrujiente.estaDebil())
+	}
+	
+	test "al darle un mordisco al chocolatinVip, con una humedad de 0.2, el peso = 18,2" {
+		chocolatinVip.mordisco()
+		assert.equals(18.2, chocolatinVip.peso())
+	}
+	
+	test "la humedad del chocolatinPremium = 0.1" {
+		chocolatinPremium.mordisco()
+		assert.equals(0.1, chocolatinPremium.humedad())
+	}
+}
