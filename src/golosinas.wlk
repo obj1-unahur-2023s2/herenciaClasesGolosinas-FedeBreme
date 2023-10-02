@@ -168,17 +168,24 @@ class ObleasCrujientes inherits Oblea {
     }
 }
 
+object heladeraDeMariano {
+	var property humedad = 0.2
+}
+
 class ChocolatinesVip inherits Chocolatin {
-    var property humedad
     
     override method peso() {
-   	 return super() * 1 + humedad
+   	 return super() * (1 + self.humedad())
+    }
+    
+    method humedad() {
+    	return heladeraDeMariano.humedad()
     }
 }
 
 class ChocolatinesPremium inherits ChocolatinesVip {
     
     override method humedad() {
-   	 return super() / 2
+   	    return super() / 2
     }
 }
